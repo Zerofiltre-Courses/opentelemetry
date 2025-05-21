@@ -1,0 +1,62 @@
+mode: statefulset
+
+config:
+  receivers:
+    jaeger: null
+    prometheus: null
+    zipkin: null
+
+
+  # tempo otlp endpoint: "tempo.zerofiltre-bootcamp.svc.cluster.local:4317"
+  # loki otlp endpoint: "http://loki-backend-gateway.zerofiltre-bootcamp.svc.cluster.local/otlp"
+  # prometheus remotewrite endpoint: "http://prometheus-server.zerofiltre-bootcamp.svc.cluster.local/api/v1/write"
+  exporters:
+    otlp:
+      endpoint:
+      tls:
+        insecure: true
+
+    otlphttp:
+      endpoint:
+      headers:
+        "X-Scope-OrgID": "bootcamp"
+
+    prometheusremotewrite:
+      endpoint:
+      tls:
+        insecure: true
+
+  #logs are exported to loki, metrics to premetheus, and traces to tempo
+  service:
+    pipelines:
+      traces:
+        receivers:
+          - otlp
+        processors:
+          - batch
+          - memory_limiter
+        exporters:
+      metrics:
+        receivers:
+          - otlp
+        processors:
+          - batch
+          - memory_limiter
+        exporters:
+      logs:
+        receivers:
+          - otlp
+        processors:
+          - batch
+          - memory_limiter
+        exporters:
+image:
+  repository: "otel/opentelemetry-collector-contrib"
+
+resources:
+  requests:
+    cpu: "0.1"
+    memory: 50Mi
+  limits:
+    cpu: "0.1"
+    memory: 50Mi

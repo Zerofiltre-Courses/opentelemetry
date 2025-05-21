@@ -2,6 +2,12 @@
 
 👉 [Documentation](https://opentelemetry.io/docs/kubernetes/helm/collector/)
 
+## Ajout du repo
+```shell
+helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+```
+
+
 ## Installation
 
 ```shell
@@ -17,6 +23,6 @@
 
 ## Deletion
 ```shell
-helm un otelcol -n monitoring
+helm un otelcol -n namespace
 ```
 
