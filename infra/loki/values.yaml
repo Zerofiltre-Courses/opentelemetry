@@ -28,7 +28,7 @@ backend:
 read:
   replicas: 1
 write:
-  replicas: 2
+  replicas: 1
 
 # Enable minio for storage
 minio:

@@ -11,13 +11,13 @@ helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm
 ## Installation
 
 ```shell
- helm install otelcol open-telemetry/opentelemetry-collector -f values.yml -n namespace
+ helm install otelcol open-telemetry/opentelemetry-collector -f values.yml -n namespace --version 0.126.0
 ```
 
 ## Upgrade
 
 ```shell
- helm upgrade otelcol open-telemetry/opentelemetry-collector -f values.yml -n namespace
+ helm upgrade otelcol open-telemetry/opentelemetry-collector -f values.yml -n namespace --version 0.126.0
 ```
 
 

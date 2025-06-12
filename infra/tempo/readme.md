@@ -3,18 +3,18 @@
 ## Installation
 
 ```shell
-helm install tempo grafana/tempo -f values.yml -n monitoring
+helm install tempo grafana/tempo -f values.yml -n zerofiltre-bootcamp --version=1.21.1
 ```
 
 
 ## Upgrade 
 ```shell
-helm upgrade tempo grafana/tempo -f values.yml -n monitoring
+helm upgrade tempo grafana/tempo -f values.yml -n zerofiltre-bootcamp --version=1.21.1
 ```
 
 ## Deletion
 ```shell
-helm un tempo -n monitoring
+helm un tempo -n zerofiltre-bootcamp
 ```
 
 

@@ -3,11 +3,11 @@
 **Installing**
 
 ```` 
-helm install prometheus prometheus-community/prometheus -f values.yml -n zerofiltre-bootcamp
+helm install prometheus prometheus-community/prometheus -f values.yml -n zerofiltre-bootcamp --version 27.20.0
 ````
 
 **Upgrading**
 
 ```
-helm upgrade prometheus prometheus-community/prometheus -f values.yml -n zerofiltre-bootcamp
+helm upgrade prometheus prometheus-community/prometheus -f values.yml -n zerofiltre-bootcamp --version 27.20.0
 ```
